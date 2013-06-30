@@ -24,7 +24,7 @@ Install
 -------
  -------
 
-Copy the files CastaliaGI.py and CastaliaUI.pyc in the directory /bin of Castalia.
+Copy the files CastaliaGI.py and CastaliaUI.py in the directory /bin of Castalia.
 Check if CastaliaGI.py has the execution permission, if not you add it ( i.e 
 using Linux you must use chmod +x command).
 
