@@ -12,7 +12,7 @@ __author__ = "Alessandro Pischedda"
 __email__ = "alessandro.pischedda@gmail.com"
 __copyright__ = "Copyright 2009"
 __license__ = "GPL"
-__version__ = "0.1"
+__version__ = "0.2"
 __maintainer__ = "Alessandro Pischedda"
 
 import sys
@@ -31,37 +31,11 @@ from CastaliaUI import Ui_MainWindow
 import subprocess
 
 
-def loadConfig():
-	""" read the omnet.ini file and find the configurations name. """
-
-	try:	
-		in_file = open("omnetpp.ini","r")
-		file_content = in_file.read()
-	except IOError:
-		print "Error: can\'t find file omnetpp.ini or read data"
-		sys.exit(-1)
-	
-	in_file.close()
-
-	# there is always an entry called "General"
-	names = ["General"]
-
-	# find all [Config <something>] match in the
-	matches = re.findall(r"Config [a-zA-Z0-9]+", file_content)
-	
-	# for each match we clean it in order to have only the name of the configuration
-	for match in matches:
-		name = match.replace("Config", "")
-		name = name.replace(" ","")
-		names.append(name)
-
-	return names
-
-
 # Create a class for our main window
 class Main(QtGui.QMainWindow):
-	def __init__(self, config_names):
+	def __init__(self):
 		QtGui.QMainWindow.__init__(self)
+
 
 		# This is always the same
 		self.ui=Ui_MainWindow()
@@ -71,19 +45,93 @@ class Main(QtGui.QMainWindow):
 		self.model_available = QtGui.QStandardItemModel()
 		self.model_selected = QtGui.QStandardItemModel()
 
-		# fill the listView with all the configuration names
-		self.fillConfigAvailable(config_names)
 
 		# connect the buttons press with the correct function
 		self.ui.button_add.clicked.connect(self.addConf)
 		self.ui.button_remove.clicked.connect(self.rmConf)
 		self.ui.button_execute.clicked.connect(self.executeCastalia)
+		# connect change button to openFile method
+		self.ui.button_open_conf_file.clicked.connect(self.openFile)
 
 		# set multiselection in the lists
 		self.ui.list_conf_available.setSelectionMode(QtGui.QAbstractItemView.MultiSelection)
 		self.ui.list_conf_selected.setSelectionMode(QtGui.QAbstractItemView.MultiSelection)
 
+
+		self.conf_filename = "omnetpp.ini"
+		# check if the file omnetpp.ini exist
+		# if not show a message where say to choose a configuration file
+		# cause you don't find omnetpp.ini
+		try:	
+			in_file = open(self.conf_filename,"r")
+		except IOError:
+			self.ui.label_show_name.setText("-----------")	
+		else:
+			self.ui.label_show_name.setText("omnetpp.ini")
+			self.loadConfigFile()
+		
+		in_file.close()
+
+
+	def loadConfigFile(self):
+		""" read the omnet.ini file and find the configurations name. """
+
+		try:	
+			in_file = open(self.conf_filename,"r")
+			file_content = in_file.read()
+		except IOError:
+			QtGui.QMessageBox.warning(self, "Error", "Can\'t find file"+str(self.conf_filename)+" or read data")
+			in_file.close()
+			return
+	
+		in_file.close()
+
+		names = []
+
+		# there is always an entry called "General"
+		matches = re.findall(r"\[General\]", file_content)
+		if matches == []:
+			QtGui.QMessageBox.warning(self, "Error", "This file is not a configuration file, please choose another one")
+			return
+
+		names.append("General")
+
+		# find all [Config <something>] match in the
+		matches = re.findall(r"Config [a-zA-Z0-9]+", file_content)
+	
+		# for each match we clean it in order to have only the name of the configuration
+		for match in matches:
+			name = match.replace("Config", "")
+			name = name.replace(" ","")
+			names.append(name)
+
+		# fill the listView with all the configuration names
+		self.fillConfigAvailable(names)
+
+		# set the current configuration filename
+		self.ui.label_show_name.setText(str(self.conf_filename))
+
+
+	def openFile(self):
+		fName = QtGui.QFileDialog.getOpenFileName(self, "Open file", "Open file", self.tr("*"))
+  
+		if fName.isEmpty():
+			return
+
+		self.conf_filename = fName
+
+		self.loadConfigFile()
+
+			
+
 	def fillConfigAvailable(self, configs):
+
+		# clear the model
+		if self.model_available.rowCount() != 0:
+			self.model_available.clear() 
+
+		if self.model_selected.rowCount() != 0:
+			self.model_selected.clear() 
 
 		for conf in configs:
 			# Create an item with a caption
@@ -163,7 +211,9 @@ class Main(QtGui.QMainWindow):
 
 		# ok everythings seems fine, time to execute Castalia and wait it
 		if not error:
-			command = "Castalia -c "
+			command = "Castalia " 
+			command += "-i "+str(self.conf_filename)
+			command += " -c "
 			for i in range(len(configs)):
 				if i == 0:
 					command += configs[i]
@@ -187,10 +237,10 @@ class Main(QtGui.QMainWindow):
 def main():
 
 	# retrieve all the configurations
-	configs = loadConfig()
+	#configs = loadConfig()
 
 	app = QtGui.QApplication(sys.argv)
-	window=Main(configs)
+	window=Main()
 	window.show()
 	# It's exec_ because exec is a reserved word in Python
 	sys.exit(app.exec_())

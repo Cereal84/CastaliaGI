@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'CastaliaUI.ui'
 #
-# Created: Mon Jul  1 15:46:24 2013
+# Created: Mon Jul  1 17:28:12 2013
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -17,18 +17,18 @@ except AttributeError:
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName(_fromUtf8("MainWindow"))
-        MainWindow.resize(690, 501)
+        MainWindow.resize(690, 600)
         sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Fixed, QtGui.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(MainWindow.sizePolicy().hasHeightForWidth())
         MainWindow.setSizePolicy(sizePolicy)
-        MainWindow.setMinimumSize(QtCore.QSize(690, 501))
-        MainWindow.setMaximumSize(QtCore.QSize(690, 501))
+        MainWindow.setMinimumSize(QtCore.QSize(690, 600))
+        MainWindow.setMaximumSize(QtCore.QSize(690, 600))
         self.centralwidget = QtGui.QWidget(MainWindow)
         self.centralwidget.setObjectName(_fromUtf8("centralwidget"))
         self.horizontalLayoutWidget = QtGui.QWidget(self.centralwidget)
-        self.horizontalLayoutWidget.setGeometry(QtCore.QRect(10, 40, 672, 371))
+        self.horizontalLayoutWidget.setGeometry(QtCore.QRect(10, 111, 672, 371))
         self.horizontalLayoutWidget.setObjectName(_fromUtf8("horizontalLayoutWidget"))
         self.horizontalLayout = QtGui.QHBoxLayout(self.horizontalLayoutWidget)
         self.horizontalLayout.setMargin(0)
@@ -81,7 +81,7 @@ class Ui_MainWindow(object):
         self.list_conf_selected.setObjectName(_fromUtf8("list_conf_selected"))
         self.horizontalLayout.addWidget(self.list_conf_selected)
         self.horizontalLayoutWidget_2 = QtGui.QWidget(self.centralwidget)
-        self.horizontalLayoutWidget_2.setGeometry(QtCore.QRect(20, 439, 661, 31))
+        self.horizontalLayoutWidget_2.setGeometry(QtCore.QRect(20, 510, 661, 31))
         self.horizontalLayoutWidget_2.setObjectName(_fromUtf8("horizontalLayoutWidget_2"))
         self.horizontalLayout_2 = QtGui.QHBoxLayout(self.horizontalLayoutWidget_2)
         self.horizontalLayout_2.setMargin(0)
@@ -111,7 +111,7 @@ class Ui_MainWindow(object):
         self.button_execute.setObjectName(_fromUtf8("button_execute"))
         self.horizontalLayout_2.addWidget(self.button_execute)
         self.horizontalLayoutWidget_3 = QtGui.QWidget(self.centralwidget)
-        self.horizontalLayoutWidget_3.setGeometry(QtCore.QRect(10, 0, 671, 42))
+        self.horizontalLayoutWidget_3.setGeometry(QtCore.QRect(10, 71, 671, 42))
         self.horizontalLayoutWidget_3.setObjectName(_fromUtf8("horizontalLayoutWidget_3"))
         self.horizontalLayout_3 = QtGui.QHBoxLayout(self.horizontalLayoutWidget_3)
         self.horizontalLayout_3.setMargin(0)
@@ -138,6 +138,28 @@ class Ui_MainWindow(object):
         self.label_2.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.label_2.setObjectName(_fromUtf8("label_2"))
         self.horizontalLayout_3.addWidget(self.label_2)
+        self.horizontalLayoutWidget_4 = QtGui.QWidget(self.centralwidget)
+        self.horizontalLayoutWidget_4.setGeometry(QtCore.QRect(10, 20, 671, 41))
+        self.horizontalLayoutWidget_4.setObjectName(_fromUtf8("horizontalLayoutWidget_4"))
+        self.horizontalLayout_4 = QtGui.QHBoxLayout(self.horizontalLayoutWidget_4)
+        self.horizontalLayout_4.setMargin(0)
+        self.horizontalLayout_4.setObjectName(_fromUtf8("horizontalLayout_4"))
+        self.label_curre_conf_file = QtGui.QLabel(self.horizontalLayoutWidget_4)
+        self.label_curre_conf_file.setMinimumSize(QtCore.QSize(130, 27))
+        self.label_curre_conf_file.setMaximumSize(QtCore.QSize(130, 27))
+        self.label_curre_conf_file.setObjectName(_fromUtf8("label_curre_conf_file"))
+        self.horizontalLayout_4.addWidget(self.label_curre_conf_file)
+        self.label_show_name = QtGui.QLabel(self.horizontalLayoutWidget_4)
+        self.label_show_name.setMinimumSize(QtCore.QSize(427, 27))
+        self.label_show_name.setMaximumSize(QtCore.QSize(427, 27))
+        self.label_show_name.setText(_fromUtf8(""))
+        self.label_show_name.setObjectName(_fromUtf8("label_show_name"))
+        self.horizontalLayout_4.addWidget(self.label_show_name)
+        self.button_open_conf_file = QtGui.QPushButton(self.horizontalLayoutWidget_4)
+        self.button_open_conf_file.setMinimumSize(QtCore.QSize(100, 27))
+        self.button_open_conf_file.setMaximumSize(QtCore.QSize(100, 27))
+        self.button_open_conf_file.setObjectName(_fromUtf8("button_open_conf_file"))
+        self.horizontalLayout_4.addWidget(self.button_open_conf_file)
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtGui.QStatusBar(MainWindow)
         self.statusbar.setObjectName(_fromUtf8("statusbar"))
@@ -154,4 +176,6 @@ class Ui_MainWindow(object):
         self.button_execute.setText(QtGui.QApplication.translate("MainWindow", "Execute", None, QtGui.QApplication.UnicodeUTF8))
         self.label_3.setText(QtGui.QApplication.translate("MainWindow", "Configuration Available", None, QtGui.QApplication.UnicodeUTF8))
         self.label_2.setText(QtGui.QApplication.translate("MainWindow", "Configuration Selected", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_curre_conf_file.setText(QtGui.QApplication.translate("MainWindow", "Configuration file :", None, QtGui.QApplication.UnicodeUTF8))
+        self.button_open_conf_file.setText(QtGui.QApplication.translate("MainWindow", "Change file", None, QtGui.QApplication.UnicodeUTF8))
 

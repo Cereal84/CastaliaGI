@@ -24,7 +24,7 @@ Install
 -------
  -------
 
-Copy the files CastaliaGI.py and CastaliaUI.py in the directory /bin of Castalia.
+Copy the files CastaliaGI.py and CastaliaUI.pyc in the directory /bin of Castalia.
 Check if CastaliaGI.py has the execution permission, if not you add it ( i.e 
 using Linux you must use chmod +x command).
 
@@ -42,6 +42,14 @@ If you want execute some of them select that you are interested for and click on
 Insert the number of run in the text line in the bottom of the window and click on "Execute" to start the simulations.
 The "Remove" button delete the selected configuration from the right list.
  
+Changes
+-------
+ -------
+
+v 0.2
+-----
+* You can choose a configuration file different from the default one, omnetpp.ini, like -i option.
+
 
 Author
 ------
