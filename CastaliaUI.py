@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'CastaliaUI.ui'
 #
-# Created: Sun Jun 30 16:14:51 2013
+# Created: Mon Jul  1 15:46:24 2013
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -17,14 +17,14 @@ except AttributeError:
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName(_fromUtf8("MainWindow"))
-        MainWindow.resize(652, 501)
+        MainWindow.resize(690, 501)
         sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Fixed, QtGui.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(MainWindow.sizePolicy().hasHeightForWidth())
         MainWindow.setSizePolicy(sizePolicy)
-        MainWindow.setMinimumSize(QtCore.QSize(652, 501))
-        MainWindow.setMaximumSize(QtCore.QSize(652, 501))
+        MainWindow.setMinimumSize(QtCore.QSize(690, 501))
+        MainWindow.setMaximumSize(QtCore.QSize(690, 501))
         self.centralwidget = QtGui.QWidget(MainWindow)
         self.centralwidget.setObjectName(_fromUtf8("centralwidget"))
         self.horizontalLayoutWidget = QtGui.QWidget(self.centralwidget)
@@ -44,6 +44,8 @@ class Ui_MainWindow(object):
         self.list_conf_available.setObjectName(_fromUtf8("list_conf_available"))
         self.horizontalLayout.addWidget(self.list_conf_available)
         self.verticalLayout = QtGui.QVBoxLayout()
+        self.verticalLayout.setSpacing(1)
+        self.verticalLayout.setContentsMargins(20, -1, 20, -1)
         self.verticalLayout.setObjectName(_fromUtf8("verticalLayout"))
         self.button_add = QtGui.QPushButton(self.horizontalLayoutWidget)
         sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Fixed, QtGui.QSizePolicy.Fixed)
@@ -53,6 +55,8 @@ class Ui_MainWindow(object):
         self.button_add.setSizePolicy(sizePolicy)
         self.button_add.setMinimumSize(QtCore.QSize(80, 27))
         self.button_add.setMaximumSize(QtCore.QSize(98, 27))
+        self.button_add.setWhatsThis(_fromUtf8(""))
+        self.button_add.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.button_add.setObjectName(_fromUtf8("button_add"))
         self.verticalLayout.addWidget(self.button_add)
         self.button_remove = QtGui.QPushButton(self.horizontalLayoutWidget)
@@ -77,7 +81,7 @@ class Ui_MainWindow(object):
         self.list_conf_selected.setObjectName(_fromUtf8("list_conf_selected"))
         self.horizontalLayout.addWidget(self.list_conf_selected)
         self.horizontalLayoutWidget_2 = QtGui.QWidget(self.centralwidget)
-        self.horizontalLayoutWidget_2.setGeometry(QtCore.QRect(20, 439, 581, 31))
+        self.horizontalLayoutWidget_2.setGeometry(QtCore.QRect(20, 439, 661, 31))
         self.horizontalLayoutWidget_2.setObjectName(_fromUtf8("horizontalLayoutWidget_2"))
         self.horizontalLayout_2 = QtGui.QHBoxLayout(self.horizontalLayoutWidget_2)
         self.horizontalLayout_2.setMargin(0)
@@ -107,7 +111,7 @@ class Ui_MainWindow(object):
         self.button_execute.setObjectName(_fromUtf8("button_execute"))
         self.horizontalLayout_2.addWidget(self.button_execute)
         self.horizontalLayoutWidget_3 = QtGui.QWidget(self.centralwidget)
-        self.horizontalLayoutWidget_3.setGeometry(QtCore.QRect(10, 0, 631, 42))
+        self.horizontalLayoutWidget_3.setGeometry(QtCore.QRect(10, 0, 671, 42))
         self.horizontalLayoutWidget_3.setObjectName(_fromUtf8("horizontalLayoutWidget_3"))
         self.horizontalLayout_3 = QtGui.QHBoxLayout(self.horizontalLayoutWidget_3)
         self.horizontalLayout_3.setMargin(0)
@@ -143,7 +147,7 @@ class Ui_MainWindow(object):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QtGui.QApplication.translate("MainWindow", "Castalia Graphic Interface", None, QtGui.QApplication.UnicodeUTF8))
+        MainWindow.setWindowTitle(QtGui.QApplication.translate("MainWindow", "MainWindow", None, QtGui.QApplication.UnicodeUTF8))
         self.button_add.setText(QtGui.QApplication.translate("MainWindow", "Add", None, QtGui.QApplication.UnicodeUTF8))
         self.button_remove.setText(QtGui.QApplication.translate("MainWindow", "Remove", None, QtGui.QApplication.UnicodeUTF8))
         self.label.setText(QtGui.QApplication.translate("MainWindow", "Run :", None, QtGui.QApplication.UnicodeUTF8))
