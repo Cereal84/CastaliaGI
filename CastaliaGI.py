@@ -22,7 +22,8 @@ try:
 	# Import Qt modules
 	from PyQt4 import QtCore, QtGui
 except ImportError:
-    print "Library PyQt4 missing, install it"
+	print "Library PyQt4 missing, install it"
+	sys.exit(-1)
 
 
 # Import the compiled UI module
