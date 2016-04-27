@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2.7
 """ Castalia Graphip Interface
 	
 This software allows the user to call Castalia command using a graphic interface 
